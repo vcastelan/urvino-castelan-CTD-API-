@@ -1,4 +1,4 @@
-fetch('https://www.swapi.tech/api/') 
+fetch('https://www.swapi.tech/api/films/1') 
 .then(response => {
   if (!response.ok) {
     throw new Error('Request failed: ', response.status);
