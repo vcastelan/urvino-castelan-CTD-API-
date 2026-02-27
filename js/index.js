@@ -13,10 +13,38 @@ const fetchData = async() => {
     }
     //what we will do with our data
     console.log(data.result);
-    //forEach to print to the console what we want. In this case title information for our films
-    data.result.forEach((result) => {
-      console.log(result.properties.title);
+
+    // FILM CHANGES
+  
+    //start at first film
+    const film = data.result;
+    //keep track of current film
+    let filmIndex = 0;
+
+    const currentFilm = document.getElementById('film-selection');
+    const filmChange = document.getElementById('films-link');
+
+    currentFilm.textContent = film[filmIndex].properties.title;
+
+    //event listener to click a button and change character
+    filmChange.addEventListener('click', event => {
+      console.log(filmIndex);
+      // index = (index + 1); // Cycle through array
+      currentFilm.innerText = film[filmIndex+1].properties.title;
+      filmIndex = (filmIndex + 1);
+
+      //if character length is reset index value to beginning.
+      if (filmIndex >= 5) {
+        filmIndex = -1;
+      } 
     });
+
+    // //forEach to print to the console what we want. In this case title information for our films
+    // data.result.forEach((result) => {
+    //   console.log(result.properties.title);
+    // });
+
+
   //to reponse to errors in the try statement
   } catch(error) {
     console.error('An eror occured: ', error);
@@ -38,10 +66,49 @@ const fetchDataTwo = async() => {
     }
     //what we will do with our data
     console.log(people.results);
+
     //forEach to print to the console what we want. In this case title information for our films
-    people.results.forEach((person) => {
-      console.log(person.name);
+    // people.results.forEach((person) => {
+    //   console.log(person.name);
+    // });
+    // console.log(people.results[0].name);
+    //or 
+
+    // CHARACTER CHANGES
+    //variable to hold current character
+    const characters = people.results;
+
+    //start at first character
+    let index = 0;
+
+    const currentCharacterOne = document.getElementById('character-one');
+    const currentCharacterTwo = document.getElementById('character-two')
+    const characterChange = document.getElementById('character-link');
+
+    currentCharacterOne.innerText = characters[index].name;
+    currentCharacterTwo.innerText = characters[index+1].name;
+
+    // Function to change the character on click
+    //event listener to click a button and change character
+    characterChange.addEventListener('click', event => {
+      console.log(index);
+      // index = (index + 1); // Cycle through array
+      currentCharacterOne.innerText = characters[index+2].name;
+      currentCharacterTwo.innerText = characters[index+3].name;
+      index = (index + 1);
+      index = (index + 1);
+
+      //if character length is reset index value to beginning.
+      if (index >= 8) {
+        index = -2;
+      } 
     });
+
+    // //for loop to check if character length is greater than current length we are at
+    // for (let i = 0; i < people.results.length; i++) {
+    //   console.log(people.results[i].name);
+    // }
+
   //to reponse to errors in the try statement
   } catch(error) {
     console.error('An eror occured: ', error);
