@@ -39,10 +39,10 @@ const fetchData = async() => {
       } 
     });
 
-    // //forEach to print to the console what we want. In this case title information for our films
-    // data.result.forEach((result) => {
-    //   console.log(result.properties.title);
-    // });
+    //forEach to print to the console what we want. In this case title information for our films
+    data.result.forEach((result) => {
+      console.log(result.properties.title);
+    });
 
 
   //to reponse to errors in the try statement
@@ -51,6 +51,7 @@ const fetchData = async() => {
   }
 } 
 fetchData();
+
 
 const fetchDataTwo = async() => {
   //try catch error to handle promise rejections
@@ -105,9 +106,9 @@ const fetchDataTwo = async() => {
     });
 
     // //for loop to check if character length is greater than current length we are at
-    // for (let i = 0; i < people.results.length; i++) {
-    //   console.log(people.results[i].name);
-    // }
+    for (let i = 0; i < people.results.length; i++) {
+      console.log(people.results[i].name);
+    }
 
   //to reponse to errors in the try statement
   } catch(error) {
