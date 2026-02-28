@@ -39,7 +39,7 @@ const fetchData = async() => {
 
     //variable to select our film pargraph element
     const filmSection = document.getElementById('films');
-    const filmDescription = filmSection.querySelector('p');
+    const filmDescription = filmSection.querySelector('pre');
 
     currentFilm.textContent = film[filmIndex].properties.title;
     currentImg.src = "images/01 A New Hope.jpg";
@@ -50,12 +50,12 @@ const fetchData = async() => {
       console.log(filmIndex);
       //Change title of film
       currentFilm.innerText = film[filmIndex+1].properties.title;
-      
+
       //change image of current film title
       currentImg.src = imgLinks[filmIndex+1];
 
       //change current description of our current film
-      filmDescription.textContent = film[filmIndex+1].properties.opening_crawl;
+      filmDescription.innerText = film[filmIndex+1].properties.opening_crawl;
 
       //increment by 1 or next film
       filmIndex = (filmIndex + 1);
@@ -100,8 +100,11 @@ const fetchDataTwo = async() => {
   try {
     //create a variable to await for an asynchronous response to finish.
     const response = await fetch('https://www.swapi.tech/api/people/');
+
+    const responseDesc = await fetch('https://www.swapi.tech/api/people/1');
     //variable to hold the response results and converted to json format
     const people = await response.json();
+    const desc = await responseDesc.json();
 
     //if reponse throws an error
     if (!response.ok) {
@@ -121,6 +124,10 @@ const fetchDataTwo = async() => {
     //variable to hold current character
     const characters = people.results;
 
+    //checking to see if i can get description of character
+    // console.log(people.results[0].url);
+    // console.log(desc.result.description);
+
     //start at first character
     let index = 0;
 
@@ -129,11 +136,16 @@ const fetchDataTwo = async() => {
     const characterChange = document.getElementById('character-link');
     const characterImgOne = document.getElementById('char-one');
     const characterImgTwo = document.getElementById('char-two');
+    const charDescriptionOne = document.getElementById('char-desc-one');
+    const charDescriptionTwo = document.getElementById('char-desc-two');
+
 
     currentCharacterOne.innerText = characters[index].name;
     currentCharacterTwo.innerText = characters[index+1].name;
     characterImgOne.src = characterImages[0];
     characterImgTwo.src = characterImages[1];
+    charDescriptionOne.textContent = characters[index].description;
+    charDescriptionTwo.textContent = characters[index+1].description;
 
     // Function to change the character on click
     //event listener to click a button and change character

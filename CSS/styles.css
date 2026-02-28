@@ -3,7 +3,8 @@
 }
 
 body {
-  background-color: black;
+  /* background-color: black; */
+  background-image: url('/images/star-wars-space-background.jpg');
   color: white;
   width: 100%;
 }
