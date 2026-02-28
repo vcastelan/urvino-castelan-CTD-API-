@@ -1,3 +1,13 @@
+const imgLinks = [
+  "images/01 A New Hope.jpg",
+  "images/02 Empire Strikes Back.jpg",
+  "images/03 Return of the Jedi.jpg",
+  "images/04 Phantom Menance.jpg",
+  "images/05 Attack of the Clones.webp",
+  "images/06 Revenge of the Sith.jpg"
+];
+
+
 //USING ASYNC + AWAIT
 const fetchData = async() => {
   //try catch error to handle promise rejections
@@ -24,16 +34,34 @@ const fetchData = async() => {
     const currentFilm = document.getElementById('film-selection');
     const filmChange = document.getElementById('films-link');
 
+    //variable to select our img element
+    const currentImg = document.getElementById('movie');
+
+    //variable to select our film pargraph element
+    const filmSection = document.getElementById('films');
+    const filmDescription = filmSection.querySelector('p');
+
     currentFilm.textContent = film[filmIndex].properties.title;
+    currentImg.src = "images/01 A New Hope.jpg";
+    filmDescription.textContent = film[filmIndex].properties.opening_crawl;
 
     //event listener to click a button and change character
     filmChange.addEventListener('click', event => {
       console.log(filmIndex);
-      // index = (index + 1); // Cycle through array
+      //Change title of film
       currentFilm.innerText = film[filmIndex+1].properties.title;
+      
+      //change image of current film title
+      currentImg.src = imgLinks[filmIndex+1];
+
+      //change current description of our current film
+      filmDescription.textContent = film[filmIndex+1].properties.opening_crawl;
+
+      //increment by 1 or next film
       filmIndex = (filmIndex + 1);
 
-      //if character length is reset index value to beginning.
+
+      //if film index length is higher than current film list reset index value to beginning.
       if (filmIndex >= 5) {
         filmIndex = -1;
       } 
@@ -42,6 +70,7 @@ const fetchData = async() => {
     //forEach to print to the console what we want. In this case title information for our films
     data.result.forEach((result) => {
       console.log(result.properties.title);
+      console.log(result.properties.opening_crawl);
     });
 
 
@@ -52,6 +81,19 @@ const fetchData = async() => {
 } 
 fetchData();
 
+
+const characterImages = [
+  "images/01 Luke.jpeg",
+  "images/02 C-3PO.webp",
+  "images/03 R2-D2.avif",
+  "images/04 Darth Vader.jpg",
+  "images/05 Leia.jpg",
+  "images/06 Owen Lars.webp",
+  "images/07 beru whitesun.webp",
+  "images/08 R5-d4.avif",
+  "images/09 Biggs Darklighter.webp",
+  "images/10 Ben Kenobi.png",
+]
 
 const fetchDataTwo = async() => {
   //try catch error to handle promise rejections
@@ -85,21 +127,31 @@ const fetchDataTwo = async() => {
     const currentCharacterOne = document.getElementById('character-one');
     const currentCharacterTwo = document.getElementById('character-two')
     const characterChange = document.getElementById('character-link');
+    const characterImgOne = document.getElementById('char-one');
+    const characterImgTwo = document.getElementById('char-two');
 
     currentCharacterOne.innerText = characters[index].name;
     currentCharacterTwo.innerText = characters[index+1].name;
+    characterImgOne.src = characterImages[0];
+    characterImgTwo.src = characterImages[1];
 
     // Function to change the character on click
     //event listener to click a button and change character
     characterChange.addEventListener('click', event => {
       console.log(index);
-      // index = (index + 1); // Cycle through array
+      //change character title
       currentCharacterOne.innerText = characters[index+2].name;
       currentCharacterTwo.innerText = characters[index+3].name;
+
+      //change character image
+      characterImgOne.src = characterImages[index+2];
+      characterImgTwo.src = characterImages[index+3];
+
+      //increment index by 1 to update our character index
       index = (index + 1);
       index = (index + 1);
 
-      //if character length is reset index value to beginning.
+      //if character length is greater than amount we have reset the index value to beginning.
       if (index >= 8) {
         index = -2;
       } 
@@ -108,6 +160,7 @@ const fetchDataTwo = async() => {
     // //for loop to check if character length is greater than current length we are at
     for (let i = 0; i < people.results.length; i++) {
       console.log(people.results[i].name);
+  
     }
 
   //to reponse to errors in the try statement
