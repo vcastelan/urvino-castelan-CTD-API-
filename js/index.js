@@ -131,13 +131,14 @@ const fetchDataTwo = async() => {
     //start at first character
     let index = 0;
 
-    const currentCharacterOne = document.getElementById('character-one');
-    const currentCharacterTwo = document.getElementById('character-two')
-    const characterChange = document.getElementById('character-link');
-    const characterImgOne = document.getElementById('char-one');
-    const characterImgTwo = document.getElementById('char-two');
-    const charDescriptionOne = document.getElementById('char-desc-one');
-    const charDescriptionTwo = document.getElementById('char-desc-two');
+    const currentCharacterOne = document.getElementById('character-one-name');
+    const currentCharacterTwo = document.getElementById('character-two-name')
+    const previousCharacter = document.getElementById('previous-button');
+    const nextCharacter = document.getElementById('next-button')
+    const characterImgOne = document.getElementById('char-one-img');
+    const characterImgTwo = document.getElementById('char-two-img');
+    const charDescriptionOne = document.getElementById('char-one-description');
+    const charDescriptionTwo = document.getElementById('char-two-description');
 
 
     currentCharacterOne.innerText = characters[index].name;
@@ -149,8 +150,12 @@ const fetchDataTwo = async() => {
 
     // Function to change the character on click
     //event listener to click a button and change character
-    characterChange.addEventListener('click', event => {
-      console.log(index);
+    nextCharacter.addEventListener('click', event => {
+      //if character length is greater than amount we have reset the index value to beginning.
+      if (index >= 8) {
+        index = -2;
+      } 
+    
       //change character title
       currentCharacterOne.innerText = characters[index+2].name;
       currentCharacterTwo.innerText = characters[index+3].name;
@@ -163,11 +168,29 @@ const fetchDataTwo = async() => {
       index = (index + 1);
       index = (index + 1);
 
-      //if character length is greater than amount we have reset the index value to beginning.
-      if (index >= 8) {
-        index = -2;
-      } 
+      // console.log(index);
     });
+
+    previousCharacter.addEventListener('click', event => {
+      if (index <= 0) {
+        index = 10;
+      } 
+      //change character title
+      currentCharacterOne.innerText = characters[index-2].name;
+      currentCharacterTwo.innerText = characters[index-1].name;
+    
+      //change character image
+      characterImgOne.src = characterImages[index-2];
+      characterImgTwo.src = characterImages[index-1];
+    
+      //increment index by 1 to update our character index
+      index = (index - 1);
+      index = (index - 1);
+    
+      // console.log(index);
+
+    });
+    
 
     // //for loop to check if character length is greater than current length we are at
     for (let i = 0; i < people.results.length; i++) {
@@ -179,7 +202,8 @@ const fetchDataTwo = async() => {
   } catch(error) {
     console.error('An eror occured: ', error);
   }
-} 
+}
+
 fetchDataTwo();
 
 //USING PROMISE
