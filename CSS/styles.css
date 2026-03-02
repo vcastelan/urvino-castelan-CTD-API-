@@ -58,10 +58,56 @@ section {
   display: grid;
   grid-template-columns: repeat(3, auto);
   align-items: center;
+  margin: 20px 0;
 }
 
 .char-info {
   text-align: center;
+  margin: 20px 150px;
+}
+
+/* buttons */
+#previous-button {
+  border: 2px solid red;
+  color: white;
+  background-color: transparent;
+  padding: 8px 15px;
+  border-radius: 25px;
+  margin: 0 5px;
+}
+
+#previous-button:hover {
+  /* Glow on Hover */
+  background: red;
+  box-shadow: 0 0 20px 5px red, /* Inner Glow */
+              0 0 40px 10px red; /* Outer Color Glow */
+}
+
+#next-button {
+  border: 2px solid #24b624;
+  color: white;
+  background-color: transparent;
+  padding: 8px 15px;
+  border-radius: 25px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#next-button:hover {
+  /* Glow on Hover */
+  background: #24b624;
+  box-shadow: 0 0 20px 5px #24b624, /* Inner Glow */
+              0 0 40px 10px #24b624; /* Outer Color Glow */
+}
+
+/* film section */
+.film-content {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
 }
 
 /* footer */
