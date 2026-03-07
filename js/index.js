@@ -1,10 +1,10 @@
 const filmImgs = [
-  "images/01 A New Hope.jpg",
-  "images/02 Empire Strikes Back.jpg",
-  "images/03 Return of the Jedi.jpg",
-  "images/04 Phantom Menance.jpg",
-  "images/05 Attack of the Clones.webp",
-  "images/06 Revenge of the Sith.jpg"
+  "Images/01 A New Hope.jpg",
+  "Images/02 Empire Strikes Back.jpg",
+  "Images/03 Return of the Jedi.jpg",
+  "Images/04 Phantom Menance.jpg",
+  "Images/05 Attack of the Clones.webp",
+  "Images/06 Revenge of the Sith.jpg"
 ];
 
 //USING ASYNC + AWAIT
@@ -98,16 +98,16 @@ fetchData();
 
 //array of character images, grabbed from our images folder
 const characterImages = [
-  "images/01 Luke.jpeg",
-  "images/02 C-3PO.webp",
-  "images/03 R2-D2.avif",
-  "images/04 Darth Vader.jpg",
-  "images/05 Leia.jpg",
-  "images/06 Owen Lars.webp",
-  "images/07 beru whitesun.webp",
-  "images/08 R5-d4.avif",
-  "images/09 Biggs Darklighter.webp",
-  "images/10 Ben Kenobi.png",
+  "Images/01 Luke.jpeg",
+  "Images/02 C-3PO.webp",
+  "Images/03 R2-D2.avif",
+  "Images/04 Darth Vader.jpg",
+  "Images/05 Leia.jpg",
+  "Images/06 Owen Lars.webp",
+  "Images/07 beru whitesun.webp",
+  "Images/08 R5-d4.avif",
+  "Images/09 Biggs Darklighter.webp",
+  "Images/10 Ben Kenobi.png",
 ]
 
 const fetchDataTwo = async() => {
@@ -146,16 +146,23 @@ const fetchDataTwo = async() => {
     //start at first character
     let index = 0;
 
+    //variables to hold character names
     const currentCharacterOne = document.getElementById('character-one-name');
     const currentCharacterTwo = document.getElementById('character-two-name')
+
+    //variable to hold previous and next buttons to change characters
     const previousCharacter = document.getElementById('previous-button');
     const nextCharacter = document.getElementById('next-button')
+
+    // variables to hold images of characters
     const characterImgOne = document.getElementById('char-one-img');
     const characterImgTwo = document.getElementById('char-two-img');
+
+    //variable to hold description of characters
     const charDescriptionOne = document.getElementById('char-one-description');
     const charDescriptionTwo = document.getElementById('char-two-description');
 
-
+    // current characters names, imgs and descriptions
     currentCharacterOne.innerText = characters[index].name;
     currentCharacterTwo.innerText = characters[index+1].name;
     characterImgOne.src = characterImages[0];
@@ -171,13 +178,15 @@ const fetchDataTwo = async() => {
         index = -2;
       } 
     
-      //change character title
+      //change characters title
       currentCharacterOne.innerText = characters[index+2].name;
       currentCharacterTwo.innerText = characters[index+3].name;
 
-      //change character image
+      //change characters image
       characterImgOne.src = characterImages[index+2];
       characterImgTwo.src = characterImages[index+3];
+
+      //change characters description
 
       //increment index by 1 to update our character index
       index = (index + 1);
@@ -190,13 +199,15 @@ const fetchDataTwo = async() => {
       if (index <= 0) {
         index = 10;
       } 
-      //change character title
+      //change characters title
       currentCharacterOne.innerText = characters[index-2].name;
       currentCharacterTwo.innerText = characters[index-1].name;
     
-      //change character image
+      //change characters image
       characterImgOne.src = characterImages[index-2];
       characterImgTwo.src = characterImages[index-1];
+
+       //change characters description
     
       //increment index by 1 to update our character index
       index = (index - 1);
@@ -206,13 +217,9 @@ const fetchDataTwo = async() => {
 
     });
 
-    
-    
-
     // //for loop to check if character length is greater than current length we are at
     for (let i = 0; i < people.results.length; i++) {
       console.log(people.results[i].name);
-  
     }
 
   //to reponse to errors in the try statement
