@@ -1,4 +1,4 @@
-const imgLinks = [
+const filmImgs = [
   "images/01 A New Hope.jpg",
   "images/02 Empire Strikes Back.jpg",
   "images/03 Return of the Jedi.jpg",
@@ -6,7 +6,6 @@ const imgLinks = [
   "images/05 Attack of the Clones.webp",
   "images/06 Revenge of the Sith.jpg"
 ];
-
 
 //USING ASYNC + AWAIT
 const fetchData = async() => {
@@ -31,40 +30,57 @@ const fetchData = async() => {
     //keep track of current film
     let filmIndex = 0;
 
-    const currentFilm = document.getElementById('film-selection');
-    const filmChange = document.getElementById('films-link');
-
+    //variable to hold our film title
+    const currentFilmTitle = document.getElementById('film-title');
+    
     //variable to select our img element
-    const currentImg = document.getElementById('movie');
-
+    const filmImg = document.getElementById('movie-img');
+    //set our current img
+    filmImg.src = filmImgs[0];
+  
     //variable to select our film pargraph element
-    const filmSection = document.getElementById('films');
+    const filmSection = document.getElementById('film-info');
     const filmDescription = filmSection.querySelector('pre');
 
-    currentFilm.textContent = film[filmIndex].properties.title;
-    currentImg.src = "images/01 A New Hope.jpg";
+    // set our film title and description
+    currentFilmTitle.textContent = film[filmIndex].properties.title;
     filmDescription.textContent = film[filmIndex].properties.opening_crawl;
 
-    //event listener to click a button and change character
-    filmChange.addEventListener('click', event => {
-      console.log(filmIndex);
-      //Change title of film
-      currentFilm.innerText = film[filmIndex+1].properties.title;
+    //variables to hold our next and previous film buttons
+    const previousFilm = document.getElementById('previous-film');
+    const nextFilm = document.getElementById('next-film')
 
-      //change image of current film title
-      currentImg.src = imgLinks[filmIndex+1];
-
-      //change current description of our current film
-      filmDescription.innerText = film[filmIndex+1].properties.opening_crawl;
-
-      //increment by 1 or next film
-      filmIndex = (filmIndex + 1);
-
-
-      //if film index length is higher than current film list reset index value to beginning.
+    //event listener to click a button and change next film
+    nextFilm.addEventListener('click', event => {
+      //if film length is greater than amount we have reset the index value to beginning.
       if (filmIndex >= 5) {
         filmIndex = -1;
       } 
+    
+      //change fim title, img and description
+      filmImg.src = filmImgs[filmIndex+1];
+      currentFilmTitle.textContent = film[filmIndex+1].properties.title;
+      filmDescription.textContent = film[filmIndex+1].properties.opening_crawl;
+
+      //increment index by 1 to update our film index
+      filmIndex += 1;
+
+      // console.log(filmIndex);
+    });
+
+    previousFilm.addEventListener('click', event => {
+      if (filmIndex <= 0) {
+        filmIndex = 6;
+      } 
+      //change fim title, img and description
+      filmImg.src = filmImgs[filmIndex-1];
+      currentFilmTitle.textContent = film[filmIndex-1].properties.title;
+      filmDescription.textContent = film[filmIndex-1].properties.opening_crawl;
+        
+      //increment index by 1 to update our film index
+      filmIndex = (filmIndex - 1);
+  
+      console.log(filmIndex);
     });
 
     //forEach to print to the console what we want. In this case title information for our films
@@ -73,7 +89,6 @@ const fetchData = async() => {
       console.log(result.properties.opening_crawl);
     });
 
-
   //to reponse to errors in the try statement
   } catch(error) {
     console.error('An eror occured: ', error);
@@ -81,7 +96,7 @@ const fetchData = async() => {
 } 
 fetchData();
 
-
+//array of character images, grabbed from our images folder
 const characterImages = [
   "images/01 Luke.jpeg",
   "images/02 C-3PO.webp",
@@ -190,6 +205,8 @@ const fetchDataTwo = async() => {
       // console.log(index);
 
     });
+
+    
     
 
     // //for loop to check if character length is greater than current length we are at

@@ -104,11 +104,50 @@ section {
 /* film section */
 .film-content {
   display: grid;
-  grid-template-columns: repeat(1, auto);
+  grid-template-columns: repeat(3, auto);
   align-items: center;
-  text-align: center;
   margin: 20px 0;
 }
+
+#film-info {
+  text-align: center;
+  margin: 20px 150px;
+}
+
+#previous-film {
+  border: 2px solid rgb(93, 0, 255);
+  color: white;
+  background-color: transparent;
+  padding: 8px 15px;
+  border-radius: 25px;
+  margin: 0 5px;
+}
+
+#previous-film:hover {
+  /* Glow on Hover */
+  background: rgb(93, 0, 255);
+  box-shadow: 0 0 20px 5px rgb(93, 0, 255), /* Inner Glow */
+              0 0 40px 10px rgb(93, 0, 255); /* Outer Color Glow */
+}
+
+#next-film {
+  border: 2px solid blue;
+  color: white;
+  background-color: transparent;
+  padding: 8px 15px;
+  border-radius: 25px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#next-film:hover {
+  /* Glow on Hover */
+  background: blue;
+  box-shadow: 0 0 20px 5px blue, /* Inner Glow */
+              0 0 40px 10px blue; /* Outer Color Glow */
+}
+
 
 /* footer */
 .footer {
