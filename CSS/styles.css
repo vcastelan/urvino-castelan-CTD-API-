@@ -152,3 +152,40 @@ section {
 .footer {
   text-align: center;
 }
+
+@media screen and (max-width: 1024px) {
+  .char-info,
+  #film-info {
+    text-align: center;
+    margin: 20px;
+  }
+
+  section {
+    width: 85%;
+  }
+}
+
+/* phone mode sizing */
+@media screen and (max-width: 518px) {
+  body {
+    width: 475px;
+  }
+
+  section {
+    width: 85%;
+  }
+
+  .char-info,
+  #film-info {
+    text-align: center;
+    margin: 0px;
+  }
+
+  .character-content,
+  .film-content {
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    padding-bottom: 60px;
+  }
+}
