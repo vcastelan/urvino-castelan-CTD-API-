@@ -125,7 +125,7 @@ fetchData();
 const fetchDataThree = async(currentPerson) => {
   const currentUrl = `https://www.swapi.tech/api/people/${currentPerson}`;
 
-  // charDescriptionOne.textContent = 'Loading Description....PLEASE WAIT BEFORE YOU PRESS NEXT OR PREVIOUS';
+  charDescriptionOne.textContent = 'Loading Description....PLEASE WAIT BEFORE YOU PRESS NEXT OR PREVIOUS';
   
   //try catch error to handle promise rejections
   try {
