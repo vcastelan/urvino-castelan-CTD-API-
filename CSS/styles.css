@@ -49,7 +49,7 @@ section {
   display: flex;
   flex-direction: column; 
   align-items: center;
-  width: 55%;
+  width: 40%;
   margin: 20px auto;
 }
 
@@ -63,10 +63,24 @@ section {
 
 .char-info {
   text-align: center;
+  margin: 20px 0px;
+}
+
+/* film section */
+.film-content {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+}
+
+#film-info {
+  text-align: center;
   margin: 20px 150px;
 }
 
-/* buttons */
+/* ==BUTTONS=== */
+
+/* ===CHARACTER BUTTONS==== */
 #previous-button {
   border: 2px solid red;
   color: white;
@@ -101,18 +115,7 @@ section {
               0 0 40px 10px #24b624; /* Outer Color Glow */
 }
 
-/* film section */
-.film-content {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  align-items: center;
-}
-
-#film-info {
-  text-align: center;
-  margin: 20px 150px;
-}
-
+/* ===FILM BUTTONS=== */
 #previous-film {
   border: 2px solid rgb(93, 0, 255);
   color: white;
@@ -147,45 +150,62 @@ section {
               0 0 40px 10px blue; /* Outer Color Glow */
 }
 
-
 /* footer */
 .footer {
   text-align: center;
 }
 
+/* === TABLET SCREEN SIZING */
 @media screen and (max-width: 1024px) {
+
   .char-info,
   #film-info {
     text-align: center;
-    margin: 20px;
+    margin: 25px;
   }
 
   section {
-    width: 85%;
+    background-color: transparent;
+    width: 100%;
+  }
+
+  .footer {
+    text-align: center;
   }
 }
 
-/* phone mode sizing */
+/* ==PHONE MOBILE SIZING ===*/
 @media screen and (max-width: 518px) {
   body {
-    width: 475px;
-  }
-
-  section {
-    width: 85%;
-  }
-
-  .char-info,
-  #film-info {
-    text-align: center;
-    margin: 0px;
+    width: 100%;
   }
 
   .character-content,
   .film-content {
-    display: flex;
-    /* align-items: center;
-    justify-content: center; */
-    padding-bottom: 60px;
+    padding-top: 30px;
+    /* using Grid to set my buttons on top of content/info */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "previous next";
+  }
+
+  .previous {
+    grid-area: previous;
+    text-align: center;
+  }
+
+  .next {
+    grid-area: next;
+    text-align: center;
+  }
+
+  .char-info,
+  #film-info {
+    grid-column: 1 / span 2;
+  }
+
+  .footer {
+    margin-top: 10px;
   }
 }
