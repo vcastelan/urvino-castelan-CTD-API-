@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+}
+
+body {
+  /* background-color: black; */
+  background-image: url('/images/star-wars-space-background.jpg');
+  color: white;
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}
+
+h2 {
+  color: rgb(228, 245, 120);
+}
+
+img {
+  width: 20rem;
+}
+
+/* navbar */
+#navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu li {
+  padding: 10px;
+}
+
+/* sections */
+section {
+  background-color: rgb(21, 21, 21);
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  width: 40%;
+  margin: 20px auto;
+}
+
+/* characters section */
+.character-content {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+  margin: 20px 0;
+}
+
+.char-info {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+/* film section */
+.film-content {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+}
+
+#film-info {
+  text-align: center;
+  margin: 20px 150px;
+}
+
+/* ==BUTTONS=== */
+
+/* ===CHARACTER BUTTONS==== */
+#previous-button {
+  border: 2px solid red;
+  color: white;
+  background-color: transparent;
+  padding: 8px 15px;
+  border-radius: 25px;
+  margin: 0 5px;
+}
+
+#previous-button:hover {
+  /* Glow on Hover */
+  background: red;
+  box-shadow: 0 0 20px 5px red, /* Inner Glow */
+              0 0 40px 10px red; /* Outer Color Glow */
+}
+
+#next-button {
+  border: 2px solid #24b624;
+  color: white;
+  background-color: transparent;
+  padding: 8px 15px;
+  border-radius: 25px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#next-button:hover {
+  /* Glow on Hover */
+  background: #24b624;
+  box-shadow: 0 0 20px 5px #24b624, /* Inner Glow */
+              0 0 40px 10px #24b624; /* Outer Color Glow */
+}
+
+/* ===FILM BUTTONS=== */
+#previous-film {
+  border: 2px solid rgb(93, 0, 255);
+  color: white;
+  background-color: transparent;
+  padding: 8px 15px;
+  border-radius: 25px;
+  margin: 0 5px;
+}
+
+#previous-film:hover {
+  /* Glow on Hover */
+  background: rgb(93, 0, 255);
+  box-shadow: 0 0 20px 5px rgb(93, 0, 255), /* Inner Glow */
+              0 0 40px 10px rgb(93, 0, 255); /* Outer Color Glow */
+}
+
+#next-film {
+  border: 2px solid blue;
+  color: white;
+  background-color: transparent;
+  padding: 8px 15px;
+  border-radius: 25px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#next-film:hover {
+  /* Glow on Hover */
+  background: blue;
+  box-shadow: 0 0 20px 5px blue, /* Inner Glow */
+              0 0 40px 10px blue; /* Outer Color Glow */
+}
+
+/* footer */
+.footer {
+  text-align: center;
+}
+
+/* === TABLET SCREEN SIZING */
+@media screen and (max-width: 1024px) {
+
+  .char-info,
+  #film-info {
+    text-align: center;
+    margin: 25px;
+  }
+
+  section {
+    background-color: transparent;
+    width: 100%;
+  }
+
+  .footer {
+    text-align: center;
+  }
+}
+
+/* ==PHONE MOBILE SIZING ===*/
+@media screen and (max-width: 518px) {
+  body {
+    width: 100%;
+  }
+
+  .character-content,
+  .film-content {
+    padding-top: 30px;
+    /* using Grid to set my buttons on top of content/info */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "previous next";
+  }
+
+  .previous {
+    grid-area: previous;
+    text-align: center;
+  }
+
+  .next {
+    grid-area: next;
+    text-align: center;
+  }
+
+  .char-info,
+  #film-info {
+    grid-column: 1 / span 2;
+  }
+
+  .footer {
+    margin-top: 10px;
+  }
+}

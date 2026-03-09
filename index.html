@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Urvino Castelan">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urvino Castelan's API open project</title>
+  <link href="CSS/styles.css" rel="stylesheet">
+</head>
+<body>
+  <!-- start of navbar -->
+  <nav id="navbar">
+    <h2>Star Wars API</h2>
+    <ul class="menu">
+      <li><a href="#characters" id="character-link">Characters</a></li>
+      <li><a href="#films" id="films-link">Films</a></li>
+    </ul>
+  </nav>
+  <!-- end of navbar -->
+
+  <section id="characters">
+    <h2>Characters</h2>
+    
+    <div class="character-content">
+      <!-- left arrow -->
+      <div class="previous">
+        <button id="previous-button">Previous</button>
+      </div>
+
+      <!-- 1st character -->
+      <div class="char-info">
+      <img id="char-one-img" src="" alt="star-wars-character">
+      <!-- need character -->
+      <h3 id="character-one-name"></h3>
+      <!-- need description -->
+      <p id="char-one-description">
+
+      </p>
+
+      </div>
+
+      <!-- right arrow select character -->
+      <div class="next">
+        <button id="next-button">Next</button>
+      </div>
+
+    <!-- end of character section -->
+    </div>
+  </section>
+
+  <section id="films">
+    <h2>Films</h2>
+
+    <div class="film-content">
+      <div class="previous">
+        <button id="previous-film">Previous</button>
+      </div>
+
+
+      <div id="film-info">
+        <!-- PICTURES OF MOVIES -->
+        <img id="movie-img" src="" alt="Star Wars Movie Poster">
+        <!-- Film -->
+        <h2 id="film-title"></h2>
+        <!-- movie description set to pre to display new line \r\ -->
+        <pre>
+
+        </pre>
+      </div>
+
+      <div class="next">
+        <button id="next-film">Next</button>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="footer">&#64 Urvino Castelan</footer>
+</body>
+
+<script src="js/index.js"></script>
+</html>
